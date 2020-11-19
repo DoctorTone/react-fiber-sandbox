@@ -30,8 +30,10 @@ function Plane(props) {
     <mesh
       {...props}
       ref={mesh}
+      rotation={[-Math.PI/3, 0, 0]}
+      position={[0, -3, 0]}
       >
-        <planeBufferGeometry args={[100, 100]} />
+        <planeBufferGeometry args={[10, 10]} />
         <meshStandardMaterial color={"blue"} />
     </mesh>
   )
