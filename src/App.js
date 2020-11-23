@@ -4,6 +4,7 @@ import { Canvas, useFrame, extend, useThree } from "react-three-fiber";
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { PlaneBufferGeometry } from "three";
+import Box from "./Box";
 
 extend({ OrbitControls });
 
@@ -21,35 +22,12 @@ const CameraControls = () => {
   return <orbitControls ref={controls} args={[camera, domElement]} />;
 };
 
-function Box(props) {
-  // This reference will give us direct access to the mesh
-  const mesh = useRef()
-
-  // Rotate mesh every frame, this is outside of React without overhead
-  useFrame(() => {
-    mesh.current.rotation.x = mesh.current.rotation.y += 0.01
-  })
-
-  return (
-    <mesh
-      {...props}
-      ref={mesh}
-      >
-      <boxBufferGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={'hotpink'} />
-    </mesh>
-  )
-}
-
 function Plane(props) {
-  const mesh = useRef();
 
   return (
     <mesh
       {...props}
-      ref={mesh}
-      rotation={[-Math.PI/3, 0, 0]}
-      position={[0, -3, 0]}
+      rotation={[-Math.PI/2, 0, 0]}
       >
         <planeBufferGeometry args={[10, 10]} />
         <meshStandardMaterial color={"blue"} />
@@ -64,7 +42,7 @@ function App() {
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
       <Box position={[0, 0, 0]} />
-      <Plane position={[0, 0, 0]} />
+      <Plane position={[0, -3, 0]} />
     </Canvas>
   );
 }
