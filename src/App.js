@@ -5,6 +5,7 @@ import { Canvas, useFrame, extend, useThree } from "react-three-fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { PlaneBufferGeometry } from "three";
 import Box from "./Box";
+import CameraGUI from "./CameraGui";
 
 extend({ OrbitControls });
 
@@ -37,13 +38,16 @@ function Plane(props) {
 
 function App() {
   return (
-    <Canvas>
-      <CameraControls />
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
-      <Box position={[0, 0, 0]} />
-      <Plane position={[0, -3, 0]} />
-    </Canvas>
+    <>
+      <Canvas>
+        <CameraControls />
+        <ambientLight />
+        <pointLight position={[10, 10, 10]} />
+        <Box position={[0, 0, 0]} />
+        <Plane position={[0, -3, 0]} />
+      </Canvas>
+      <CameraGUI />
+    </>
   );
 }
 
