@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import "./styles.css";
 import App from './App';
+
+// Importing the Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import "./styles.css";
 
 ReactDOM.render(
   <App />,

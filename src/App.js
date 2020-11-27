@@ -6,6 +6,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { PlaneBufferGeometry } from "three";
 import Box from "./Box";
 import CameraGUI from "./CameraGui";
+import Title from "./Title";
 
 extend({ OrbitControls });
 
@@ -37,8 +38,11 @@ function Plane(props) {
 }
 
 function App() {
+  const [camX, set] = useState(0);
+
   return (
     <>
+      <Title title="Viz Framework" />
       <Canvas>
         <CameraControls />
         <ambientLight />
