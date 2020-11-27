@@ -1,11 +1,11 @@
 import React from 'react';
-import { useThree } from "react-three-fiber";
+import Button from "react-bootstrap/Button";
 
 const CameraGui = () => {
 
     return (
         <div style={{position: "absolute", right:"5%", bottom:"5%"}}>
-            <button>Cam X</button>
+            <Button>Cam X</Button>
         </div>
         
     );
