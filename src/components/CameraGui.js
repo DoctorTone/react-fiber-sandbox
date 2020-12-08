@@ -5,14 +5,18 @@ import useStore from "../states/gui/guiStore";
 
 const CameraGui = () => {
     
-    const toggleCamera = useStore(state => state.toggleCameraRotate);
-    const onClick = () => {
-        toggleCamera();
+    const camRotate = useStore(state => state.rotateCamera);
+    const onMouseDown = () => {
+        camRotate(true);
+    };
+
+    const onMouseUp = () => {
+        camRotate(false);
     }
     
     return (
         <div style={{position: "absolute", right:"5%", bottom:"5%"}}>
-            <Button onClick={onClick}>Cam X</Button>
+            <Button onMouseDown={onMouseDown} onMouseUp={onMouseUp}>Cam X</Button>
         </div>
         
     );
