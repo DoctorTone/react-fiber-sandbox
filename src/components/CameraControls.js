@@ -1,6 +1,7 @@
 import React, { useRef, useState, useContext } from "react";
 import { Canvas, useFrame, extend, useThree } from "react-three-fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import useStore from "../states/gui/guiStore";
 
 extend({ OrbitControls });
 
@@ -12,6 +13,11 @@ const CameraControls = () => {
       camera,
       gl: { domElement },
     } = useThree();
+
+    const { cameraRotating } = useStore();
+    // DEBUG
+    console.log("Cam = ", cameraRotating);
+    
     // Ref to the controls, so that we can update them on every frame using useFrame
     const controls = useRef();
     useFrame((state) => {
