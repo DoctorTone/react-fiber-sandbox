@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
 
 import Button from "react-bootstrap/Button";
+import useStore from "../states/gui/guiStore";
 
 const CameraGui = () => {
     
+    const toggleCamera = useStore(state => state.toggleCameraRotate);
     const onClick = () => {
-
+        toggleCamera();
     }
     
     return (
