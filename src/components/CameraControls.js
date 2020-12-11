@@ -2,12 +2,13 @@ import React, { useRef, useState, useContext } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, extend, useThree } from "react-three-fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import DIRECTIONS from "../states/gui/directions";
 import useStore from "../states/gui/guiStore";
 
 extend({ OrbitControls });
 
 const camAxes = [
-  new THREE.Vector3(0, 0, 0), //STOP
+  new THREE.Vector3(0, 0, 0), //NONE
   new THREE.Vector3(0, 1, 0), //LEFT
   new THREE.Vector3(0, 1, 0), //RIGHT
   new THREE.Vector3(1, 0, 0), //UP
@@ -27,7 +28,10 @@ const CameraControls = () => {
   } = useThree();
 
   const { cameraDirection, tempVec } = useStore();
-  const direction = cameraDirection !== 2 && cameraDirection !== 4 ? 1 : -1;
+  const direction =
+    cameraDirection !== DIRECTIONS.RIGHT && cameraDirection !== DIRECTIONS.DOWN
+      ? 1
+      : -1;
 
   // Ref to the controls, so that we can update them on every frame using useFrame
   const controls = useRef();

@@ -1,13 +1,9 @@
 import React, { useContext, useState } from "react";
 
-import Button from "react-bootstrap/Button";
+import "materialize-css/dist/css/materialize.min.css";
+import { Button } from "react-materialize";
+import DIRECTIONS from "../states/gui/directions";
 import useStore from "../states/gui/guiStore";
-
-const STOP = 0;
-const LEFT = 1;
-const RIGHT = 2;
-const UP = 3;
-const DOWN = 4;
 
 const CameraGui = () => {
   const camRotate = useStore((state) => state.rotateCamera);
@@ -22,14 +18,14 @@ const CameraGui = () => {
   return (
     <div style={guiStyle}>
       <Button
-        onMouseDown={() => camRotate(LEFT)}
-        onMouseUp={() => camRotate(STOP)}
+        onMouseDown={() => camRotate(DIRECTIONS.LEFT)}
+        onMouseUp={() => camRotate(DIRECTIONS.NONE)}
       >
         +
       </Button>
       <Button
-        onMouseDown={() => camRotate(RIGHT)}
-        onMouseUp={() => camRotate(STOP)}
+        onMouseDown={() => camRotate(DIRECTIONS.RIGHT)}
+        onMouseUp={() => camRotate(DIRECTIONS.NONE)}
       >
         -
       </Button>
