@@ -15,20 +15,38 @@ const CameraGui = () => {
 
   return (
     <div style={guiStyle}>
-      <button
-        className="waves-effect blue btn"
-        onMouseDown={() => camRotate(DIRECTIONS.LEFT)}
-        onMouseUp={() => camRotate(DIRECTIONS.NONE)}
-      >
-        <i className="material-icons">arrow_back_ios</i>
-      </button>
-      <button
-        className="blue btn"
-        onMouseDown={() => camRotate(DIRECTIONS.RIGHT)}
-        onMouseUp={() => camRotate(DIRECTIONS.NONE)}
-      >
-        <i className="material-icons">arrow_forward_ios</i>
-      </button>
+      <div>
+        <button
+          className="waves-effect blue btn"
+          onMouseDown={() => camRotate(DIRECTIONS.RIGHT)}
+          onMouseUp={() => camRotate(DIRECTIONS.NONE)}
+        >
+          <i className="material-icons">keyboard_arrow_left</i>
+        </button>
+        <button
+          className="blue btn"
+          onMouseDown={() => camRotate(DIRECTIONS.LEFT)}
+          onMouseUp={() => camRotate(DIRECTIONS.NONE)}
+        >
+          <i className="material-icons">keyboard_arrow_right</i>
+        </button>
+      </div>
+      <div>
+        <button
+          className="waves-effect blue btn"
+          onMouseDown={() => camRotate(DIRECTIONS.DOWN)}
+          onMouseUp={() => camRotate(DIRECTIONS.NONE)}
+        >
+          <i className="material-icons">keyboard_arrow_up</i>
+        </button>
+        <button
+          className="blue btn"
+          onMouseDown={() => camRotate(DIRECTIONS.UP)}
+          onMouseUp={() => camRotate(DIRECTIONS.NONE)}
+        >
+          <i className="material-icons">keyboard_arrow_down</i>
+        </button>
+      </div>
     </div>
   );
 };
@@ -37,7 +55,6 @@ const guiStyle = {
   position: "absolute",
   right: "5%",
   top: "5%",
-  color: "white",
 };
 
 export default CameraGui;
