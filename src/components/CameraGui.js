@@ -15,7 +15,7 @@ const CameraGui = () => {
 
   return (
     <div style={guiStyle}>
-      <div>
+      <div style={{ width: "100%" }}>
         <button
           className="waves-effect blue btn"
           onMouseDown={() => camRotate(DIRECTIONS.RIGHT)}
@@ -53,8 +53,9 @@ const CameraGui = () => {
 
 const guiStyle = {
   position: "absolute",
-  right: "5%",
+  right: "3%",
   top: "5%",
+  width: "10%",
 };
 
 export default CameraGui;
