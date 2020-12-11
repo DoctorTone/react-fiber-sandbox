@@ -1,5 +1,5 @@
 import ReactDom from "react-dom";
-import React, { useRef, useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Canvas, useFrame, extend, useThree } from "react-three-fiber";
 
 import { PlaneBufferGeometry } from "three";
@@ -8,20 +8,23 @@ import CameraControls from "./components/CameraControls";
 import CameraGUI from "./components/CameraGui";
 import Title from "./components/Title";
 
-function Plane(props) {
+import "materialize-css/dist/css/materialize.min.css";
+import M from "materialize-css/dist/js/materialize.min.js";
 
+const Plane = (props) => {
   return (
-    <mesh
-      {...props}
-      rotation={[-Math.PI/2, 0, 0]}
-      >
-        <planeBufferGeometry args={[10, 10]} />
-        <meshStandardMaterial color={"blue"} />
+    <mesh {...props} rotation={[-Math.PI / 2, 0, 0]}>
+      <planeBufferGeometry args={[10, 10]} />
+      <meshStandardMaterial color={"blue"} />
     </mesh>
-  )
-}
+  );
+};
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    // Init Materalize
+    M.AutoInit();
+  });
 
   return (
     <>
@@ -36,6 +39,6 @@ function App() {
       <CameraGUI />
     </>
   );
-}
+};
 
 export default App;

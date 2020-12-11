@@ -1,7 +1,5 @@
 import React, { useContext, useState } from "react";
 
-import "materialize-css/dist/css/materialize.min.css";
-import { Button } from "react-materialize";
 import DIRECTIONS from "../states/gui/directions";
 import useStore from "../states/gui/guiStore";
 
@@ -17,18 +15,20 @@ const CameraGui = () => {
 
   return (
     <div style={guiStyle}>
-      <Button
+      <button
+        className="waves-effect blue btn"
         onMouseDown={() => camRotate(DIRECTIONS.LEFT)}
         onMouseUp={() => camRotate(DIRECTIONS.NONE)}
       >
-        +
-      </Button>
-      <Button
+        <i className="material-icons">arrow_back_ios</i>
+      </button>
+      <button
+        className="blue btn"
         onMouseDown={() => camRotate(DIRECTIONS.RIGHT)}
         onMouseUp={() => camRotate(DIRECTIONS.NONE)}
       >
-        -
-      </Button>
+        <i className="material-icons">arrow_forward_ios</i>
+      </button>
     </div>
   );
 };
@@ -37,6 +37,7 @@ const guiStyle = {
   position: "absolute",
   right: "5%",
   top: "5%",
+  color: "white",
 };
 
 export default CameraGui;
